@@ -77,7 +77,7 @@ func WeatherHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func getWeather(city string) (*WeatherResponse, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 	cached, err := redisClient.Get(ctx, city).Result()
 	if err == nil {

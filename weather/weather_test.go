@@ -56,7 +56,7 @@ func TestWeatherHandler(t *testing.T) {
 	err := json.NewDecoder(res.Body).Decode(&responses)
 	assert.NoError(t, err)
 
-	assert.Len(t, responses, 1)
+	assert.Len(t, responses, 2)
 	assert.Equal(t, "Moscow", responses[0].City)
 	assert.Equal(t, "5.0°C", responses[0].Temp)
 	assert.Equal(t, "clear sky", responses[0].Desc)
